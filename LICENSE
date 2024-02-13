@@ -1,9 +1,3 @@
-# metal-frameworks
-
-This is a zig package which provides a small set of frameworks to use Metal in Zig for macOS, iOS, etc.
-
-## License
-
 All files in this repository are distributed in an unmodified state,
 per section 2.2.A, paragraph (ii) of the Xcode and Apple SDKs Agreement:
 
@@ -15,7 +9,7 @@ And the last paragraph:
 developed using the Apple SDKs (**excluding the macOS SDK**) absent entering into a separate written 
 agreement with Apple. 
 
-By downloading and using this software, you must also agree to the Xcode and Apple SDKs Agreement:
+By downloading and consuming this software, you must also agree to the Xcode and Apple SDKs Agreement:
 
 https://www.apple.com/legal/sla/docs/xcode.pdf
 
