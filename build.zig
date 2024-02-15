@@ -17,10 +17,16 @@ pub fn build(b: *std.Build) void {
         .optimize = optimize,
     });
 
-    const macos_path = "libs/system-sdk/macos";
-    lib.addFrameworkPath(.{ .path = macos_path ++ "/Frameworks" });
-    lib.addSystemIncludePath(.{ .path = macos_path ++ "/include" });
-    lib.addLibraryPath(.{ .path = macos_path ++ "/lib" });
+    const root_target = (std.zig.system.NativeTargetInfo.detect(lib.target) catch @panic("failed to detect native target info")).target;
+    switch(root_target.os.tag) {
+        .macos => {
+            const macos_path = "libs/system-sdk/macos";
+            lib.addFrameworkPath(.{ .path = macos_path ++ "/Frameworks" });
+            lib.addSystemIncludePath(.{ .path = macos_path ++ "/include" });
+            lib.addLibraryPath(.{ .path = macos_path ++ "/lib" });
+        },
+        else => {},
+    }
 
     // This declares intent for the library to be installed into the standard
     // location when the user invokes the "install" step (the default step when
