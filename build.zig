@@ -17,6 +17,8 @@ pub fn build(b: *std.Build) void {
         .optimize = optimize,
     });
 
+    lib.linkLibC();
+
     const root_target = (std.zig.system.NativeTargetInfo.detect(lib.target) catch @panic("failed to detect native target info")).target;
     switch(root_target.os.tag) {
         .macos => {
